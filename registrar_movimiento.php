@@ -102,13 +102,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <div class="alert alert-danger"><?php echo $error; ?></div>
                 <?php endif; ?>
 
-                <form method="POST" action="registrar_movimiento.php">
+                <form method="POST" action="registrar_movimiento.php" data-validar="movimiento" novalidate>
                     <div class="mb-3">
                         <label class="form-label">Producto *</label>
                         <select name="id_producto" class="form-select" required>
                             <option value="">Seleccione un producto</option>
                             <?php foreach ($productos as $p): ?>
-                                <option value="<?php echo $p['id_producto']; ?>">
+                                <option value="<?php echo $p['id_producto']; ?>" data-stock="<?php echo $p['stock_actual']; ?>">
                                     <?php echo htmlspecialchars($p['código'] . ' - ' . $p['nombre'] . ' (Stock actual: ' . $p['stock_actual'] . ')'); ?>
                                 </option>
                             <?php endforeach; ?>
@@ -125,6 +125,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <div class="mb-3">
                         <label class="form-label">Cantidad *</label>
                         <input type="number" name="cantidad" class="form-control" min="1" required>
+                        <div class="form-text" id="stock-disponible"></div>
                     </div>
                     <div class="mb-3">
                         <label class="form-label">Observación / Motivo</label>
@@ -138,5 +139,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </div>
         </div>
     </div>
+    <script src="js/validaciones.js"></script>
 </body>
 </html>

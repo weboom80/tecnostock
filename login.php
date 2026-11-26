@@ -48,7 +48,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </div>
         <?php endif; ?>
 
-        <form action="login.php" method="POST">
+        <form action="login.php" method="POST" data-validar="login" novalidate>
             <div class="mb-3">
                 <label for="correo" class="form-label">Correo electrónico</label>
                 <input type="email" class="form-control" id="correo" name="correo" required>
@@ -60,5 +60,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <button type="submit" class="btn btn-primary w-100">Ingresar</button>
         </form>
     </div>
+    <script src="js/validaciones.js"></script>
 </body>
 </html>

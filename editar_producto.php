@@ -73,7 +73,7 @@ if ($_SERVER['REQUEST_METHOD']==='POST') {
                     <div class="alert alert-danger"><?php echo $error; ?></div>
                 <?php endif; ?>
 
-                <form method="POST" action="editar_producto.php?id=<?php echo $id_producto; ?>">
+                <form method="POST" action="editar_producto.php?id=<?php echo $id_producto; ?>" data-validar="producto" novalidate>
                     <div class="mb-3">
                         <label class="form-label">Código (No modificable)</label>
                         <input type="text" class="form-control" value="<?php echo htmlspecialchars($producto['código']); ?>" disabled>
@@ -114,5 +114,6 @@ if ($_SERVER['REQUEST_METHOD']==='POST') {
             </div>
         </div>
     </div>
+    <script src="js/validaciones.js"></script>
 </body>
 </html>

@@ -73,7 +73,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <div class="alert alert-danger"><?php echo $error; ?></div>
                 <?php endif; ?>
 
-                <form method="POST" action="nuevo_producto.php">
+                <form method="POST" action="nuevo_producto.php" data-validar="producto" novalidate>
                     <div class="mb-3">
                         <label class="form-label">Código del Producto *</label>
                         <input type="text" name="codigo" class="form-control" required>
@@ -117,5 +117,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </div>
         </div>
     </div>
+    <script src="js/validaciones.js"></script>
 </body>
 </html>
